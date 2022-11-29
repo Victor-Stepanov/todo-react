@@ -1,0 +1,29 @@
+@import '../../styles/index.scss';
+
+.button {
+  @include font-style(13px, 700, 20px);
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  border-radius: $common-border-radius;
+  transition: all 0.2s;
+
+  &__primary {
+    color: $text-color-white;
+    background-color: $colors-interface-blue;
+    box-shadow: 0px 4px 6px 3px rgba(45, 83, 219, 0.1);
+  }
+  &__primary:hover {
+    opacity: 0.7;
+  }
+  &__secondary {
+    color: $text-color-gray;
+    background-color: $colors-interface-gray-light;
+  }
+  &__ghost {
+    background-color: transparent;
+  }
+}
