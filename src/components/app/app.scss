@@ -1,3 +1,9 @@
-.app {
-  background-color: black;
+@import '../../styles/index.scss';
+.container {
+  background-color: $colors-interface-white;
+  width: 348px;
+  height: 398px;
+  margin: 0 auto;
+
+  border-radius: 8px;
 }
