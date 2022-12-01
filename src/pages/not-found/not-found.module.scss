@@ -1,0 +1,42 @@
+@import '../../styles/main.scss';
+
+.container {
+  max-width: 1260px;
+  width: 100%;
+  margin: 80px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  &__title {
+    @include font-style(40px, 700, 47px);
+  }
+  &__subtitle {
+    @include font-style(32px, 400, 38px);
+  }
+  &__description {
+    @include font-style(16px, 400, 24px);
+  }
+}
+
+.link {
+  width: 200px;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: $common-border-radius;
+  background-color: $colors-interface-blue;
+
+  &__text {
+    @include font-style(16px, 400, 19px);
+    color: $text-color-white;
+  }
+}
+
+.link:hover {
+  opacity: 0.5;
+}
