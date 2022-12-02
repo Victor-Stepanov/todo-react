@@ -1,6 +1,13 @@
+import TaskForm from '../../components/form/task-form/task';
+import Modal from '../../components/modal/modal';
+import useModalState from '../../hooks/modal/useModalState';
+import { Button } from '../../ui';
 import style from './home.module.scss';
 
 const HomePage = () => {
+  const { isOpen, onToggle } = useModalState();
+  console.log(isOpen);
+  const handleClick = () => onToggle();
   return (
     <section className={style.container}>
       <div className={style.info}>
@@ -19,6 +26,18 @@ const HomePage = () => {
             друга.
           </p>
         </blockquote>
+        <Button
+          onClick={handleClick}
+          htmlType={'button'}
+          appearance={'primary'}
+        >
+          TEST
+        </Button>
+        {isOpen && (
+          <Modal title='Создать задачу' onClose={handleClick}>
+            <TaskForm onClose={handleClick} />
+          </Modal>
+        )}
       </div>
     </section>
   );

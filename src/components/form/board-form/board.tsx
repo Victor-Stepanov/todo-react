@@ -1,0 +1,43 @@
+import { FC, FormEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import useForm from '../../../hooks/form/useForm';
+import { Button, Input } from '../../../ui';
+import Form from '../form';
+import style from './board.module.scss';
+import { IBoardFormProps } from './boards.props';
+
+const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
+  const { values, handleChange } = useForm({
+    name: '',
+  });
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    dispatch(values);
+    onClose();
+  };
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Input
+        type={'text'}
+        name='name'
+        placeholder='Название доски...'
+        value={values.name}
+        onChange={handleChange}
+      />
+      <div className={style.form__button}>
+        <Button appearance={'primary'} htmlType={'button'}>
+          Добавить доску
+        </Button>
+        <Button onClick={onClose} appearance={'secondary'} htmlType={'button'}>
+          Отменить
+        </Button>
+      </div>
+    </Form>
+  );
+};
+
+export default BoardForm;

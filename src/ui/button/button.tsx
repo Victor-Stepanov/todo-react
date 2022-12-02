@@ -3,7 +3,13 @@ import { FC } from 'react';
 import style from './button.module.scss';
 import { IButtonProps } from './button.props';
 
-const Button: FC<IButtonProps> = ({ appearance, children, className, htmlType }) => {
+const Button: FC<IButtonProps> = ({
+  appearance,
+  children,
+  className,
+  htmlType,
+  ...props
+}) => {
   const combinedClassName = cn(style.button, className, {
     [style.button__primary]: appearance === 'primary',
     [style.button__secondary]: appearance === 'secondary',
@@ -11,7 +17,7 @@ const Button: FC<IButtonProps> = ({ appearance, children, className, htmlType })
   });
 
   return (
-    <button className={combinedClassName} type={htmlType}>
+    <button className={combinedClassName} type={htmlType} {...props}>
       {children}
     </button>
   );

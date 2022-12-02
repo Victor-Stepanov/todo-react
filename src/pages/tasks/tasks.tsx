@@ -3,11 +3,11 @@ import style from './tasks.module.scss';
 
 const TasksPage = () => {
   return (
-    <section className={style.container}>
-      <Task title='Queue' />
-      <Task title='Development' />
-      <Task title='Done' />
-    </section>
+    <main className={style.container}>
+      <section className={style.content}>
+        <Task title='Queue' />
+      </section>
+    </main>
   );
 };
 
