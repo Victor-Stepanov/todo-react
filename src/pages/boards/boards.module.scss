@@ -27,6 +27,14 @@
     gap: 15px;
   }
 }
+.link {
+  text-decoration: none;
+  opacity: 1;
+
+  :hover{
+    opacity: 0.6;
+  }
+}
 
 .item {
   text-align: center;

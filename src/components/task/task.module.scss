@@ -3,8 +3,8 @@
 .task {
   background-color: $colors-interface-dark-blue;
   border-radius: $common-border-radius;
-  width: 437.33px;
-  min-height: 50vh;
+  max-width: 350px;
+  width: 100%;
   padding: 16px;
 
   &__box {

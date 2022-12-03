@@ -1,21 +1,21 @@
 import { FC, FormEvent } from 'react';
-import { useDispatch } from 'react-redux';
 import useForm from '../../../hooks/form/useForm';
+import { useAppDispatch } from '../../../hooks/hooks';
+import { addBoard } from '../../../services/actions/boards';
 import { Button, Input } from '../../../ui';
 import Form from '../form';
 import style from './board.module.scss';
 import { IBoardFormProps } from './boards.props';
 
 const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
+  const dispatch = useAppDispatch();
   const { values, handleChange } = useForm({
     name: '',
   });
 
-  const dispatch = useDispatch();
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(values);
+    dispatch(addBoard(values));
     onClose();
   };
 

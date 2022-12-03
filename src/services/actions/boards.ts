@@ -8,6 +8,8 @@ interface IAddBoard {
   readonly payload: IBoard;
 }
 
+export type TBoardsActions = IAddBoard;
+
 export const addBoard = (board: IBoard): IAddBoard => {
   console.log(board);
   return {

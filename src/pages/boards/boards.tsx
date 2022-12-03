@@ -1,39 +1,15 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import BoardForm from '../../components/form/board-form/board';
 import Modal from '../../components/modal/modal';
+import { useAppSelector } from '../../hooks/hooks';
 import useModalState from '../../hooks/modal/useModalState';
 import { Button } from '../../ui';
 import style from './boards.module.scss';
 
 const BoardsPage: FC = () => {
-  const { isOpen, onToggle } = useModalState();
-  const handleClick = () => onToggle();
-  const boards = [
-    {
-      name: 'Frontend',
-    },
-    {
-      name: 'Books',
-    },
-    {
-      name: 'English',
-    },
-    {
-      name: 'English1',
-    },
-    {
-      name: 'English2',
-    },
-    {
-      name: 'English3',
-    },
-    {
-      name: 'English4',
-    },
-    {
-      name: 'English6',
-    },
-  ];
+  const { isOpen, onToggle } = useModalState(false);
+  const { boards } = useAppSelector(state => state.boardsData);
 
   return (
     <section className={style.section}>
@@ -43,21 +19,24 @@ const BoardsPage: FC = () => {
           className={style.content__button}
           htmlType='button'
           appearance={'secondary'}
-          onClick={handleClick}
+          onClick={onToggle}
         >
           Создать доску
         </Button>
         {isOpen && (
-          <Modal title='Создать новую доску' onClose={handleClick}>
-            <BoardForm onClose={handleClick} />
+          <Modal title='Создать новую доску' onClose={onToggle}>
+            <BoardForm onClose={onToggle} />
           </Modal>
         )}
         <ul className={style.content__list}>
-          {boards.map((item, index) => (
-            <li key={index} className={style.item}>
-              <p className={style.item__name}>{item.name}</p>
-            </li>
-          ))}
+          {boards &&
+            boards.map(item => (
+              <Link className={style.link} key={item.id} to={`/boards/${item.id}`}>
+                <li className={style.item}>
+                  <p className={style.item__name}>{item.name}</p>
+                </li>
+              </Link>
+            ))}
         </ul>
       </div>
     </section>

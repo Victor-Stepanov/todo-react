@@ -1,3 +1,5 @@
+import { ITask } from './../../services/types/data';
 export interface ITaskProps {
-    title:string
+  title: string;
+  task: ITask[];
 }

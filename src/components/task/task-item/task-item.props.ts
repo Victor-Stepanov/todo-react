@@ -1,3 +1,4 @@
-export interface ITaskItemProps{
-    
+import { ITask } from './../../../services/types/data';
+export interface ITaskItemProps {
+  item: ITask;
 }

@@ -1,23 +1,31 @@
 import { FC } from 'react';
 import useForm from '../../../hooks/form/useForm';
+import { useAppDispatch } from '../../../hooks/hooks';
+import { addTask } from '../../../services/actions/tasks';
 import { Button, Input, Textarea } from '../../../ui';
+import Select from '../../../ui/select/select';
 import Form from '../form';
 import { ITaskFormProps } from './task.props';
 
-const TaskForm: FC<ITaskFormProps> = ({ onClose }) => {
+const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
+  const dispatch = useAppDispatch();
   const { values, handleChange } = useForm({
     title: '',
+    boardId: id,
     description: '',
     createdAt: '',
-    timeInWork: '',
     finishedAt: '',
-    priority: '',
+    priority: 'low',
+    status: 'queue',
     file: '',
   });
 
+  const arrPriority = ['low', 'medium', 'high'];
+  const arrStatus = ['queue', 'development', 'done'];
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log(values);
+    dispatch(addTask(values));
     onClose();
   };
   return (
@@ -42,13 +50,6 @@ const TaskForm: FC<ITaskFormProps> = ({ onClose }) => {
         placeholder='Дата создания'
       />
       <Input
-        type={'text'}
-        name='timeInWork'
-        value={values.name}
-        onChange={handleChange}
-        placeholder='Время в работе'
-      />
-      <Input
         type={'date'}
         name='finishedAt'
         value={values.name}
@@ -61,6 +62,18 @@ const TaskForm: FC<ITaskFormProps> = ({ onClose }) => {
         value={values.name}
         onChange={handleChange}
         placeholder='Дата окончания'
+      />
+      <Select
+        onChange={handleChange}
+        value={values.name}
+        name={'priority'}
+        arrOptions={arrPriority}
+      />
+      <Select
+        name={'status'}
+        onChange={handleChange}
+        value={values.name}
+        arrOptions={arrStatus}
       />
       <Button onClick={handleSubmit} htmlType={'button'} appearance={'primary'}>
         Создать
