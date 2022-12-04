@@ -1,4 +1,10 @@
-import { ADD_TASK, MOVE_TASK, TTaskActions } from './../actions/tasks';
+import {
+  ADD_TASK,
+  EDIT_TASK,
+  MOVE_TASK,
+  REMOVE_TASK,
+  TTaskActions,
+} from './../actions/tasks';
 import { ITask } from './../types/data';
 
 type TInitialState = {
@@ -20,10 +26,24 @@ export const tasksReducer = (
         tasks: [...state.tasks, action.payload],
       };
     }
+    case REMOVE_TASK: {
+      return {
+        ...state,
+        tasks: [...state.tasks].filter(item => item.id !== action.id),
+      };
+    }
+    case EDIT_TASK: {
+      console.log(action.task);
+      return {
+        ...state,
+      };
+    }
     case MOVE_TASK: {
       return {
         ...state,
-        // tasks: [...state.tasks].find(item => item.id === action.id),
+        tasks: [...state.tasks].map(item =>
+          item.id === action.id ? { ...item, status: action.title } : item
+        ),
       };
     }
     default:

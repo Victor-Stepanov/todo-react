@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import BoardForm from '../../components/form/board-form/board';
 import Modal from '../../components/modal/modal';
 import { useAppSelector } from '../../hooks/hooks';
-import useModalState from '../../hooks/modal/useModalState';
+import useToggle from '../../hooks/toggle/useModalState';
 import { Button } from '../../ui';
 import style from './boards.module.scss';
 
 const BoardsPage: FC = () => {
-  const { isOpen, onToggle } = useModalState(false);
+  const { isOpen, onToggle } = useToggle(false);
   const { boards } = useAppSelector(state => state.boardsData);
 
   return (
@@ -31,7 +31,11 @@ const BoardsPage: FC = () => {
         <ul className={style.content__list}>
           {boards &&
             boards.map(item => (
-              <Link className={style.link} key={item.id} to={`/boards/${item.id}`}>
+              <Link
+                className={style.link}
+                key={item.id}
+                to={`/boards/${item.id}`}
+              >
                 <li className={style.item}>
                   <p className={style.item__name}>{item.name}</p>
                 </li>

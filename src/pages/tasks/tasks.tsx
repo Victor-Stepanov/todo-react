@@ -3,7 +3,7 @@ import TaskForm from '../../components/form/task-form/task';
 import Modal from '../../components/modal/modal';
 import Task from '../../components/task/task';
 import { useAppSelector } from '../../hooks/hooks';
-import useModalState from '../../hooks/modal/useModalState';
+import useModalState from '../../hooks/toggle/useModalState';
 import { Button } from '../../ui';
 import style from './tasks.module.scss';
 

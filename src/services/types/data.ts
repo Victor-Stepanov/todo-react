@@ -8,7 +8,6 @@ export interface IBoards {
 }
 
 export type TPriority = 'low' | 'medium' | 'high';
-export type TStatus = 'queue' | 'development' | 'done';
 
 export interface IComment {
   id: string;
@@ -26,7 +25,7 @@ export interface ITask {
   finishedAt: string;
   priority: TPriority;
   files?: string[];
-  status: TStatus;
+  status: string;
   subTasks?: ITask[];
   comment?: IComment[];
 }

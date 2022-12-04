@@ -4,8 +4,8 @@
   background-color: $colors-interface-dark-blue;
   border-radius: $common-border-radius;
   max-width: 350px;
-  width: 100%;
   padding: 16px;
+  box-sizing: border-box;
 
   &__box {
     background-color: rgba(8, 51, 70, 1);
@@ -24,4 +24,5 @@
   flex-direction: column;
   gap: 12px;
   justify-content: center;
+  align-items: center;
 }

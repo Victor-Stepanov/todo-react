@@ -13,7 +13,7 @@ interface IAddTask {
 
 interface IEditTask {
   readonly type: typeof EDIT_TASK;
-  readonly id: string | undefined;
+  readonly task: ITask;
 }
 
 interface IRemoveTask {
@@ -39,11 +39,25 @@ export const addTask = (task: ITask): IAddTask => {
   };
 };
 
+export const removeTask = (id: string | undefined): IRemoveTask => {
+  return {
+    type: REMOVE_TASK,
+    id: id,
+  };
+};
+
 export const moveItem = (title: string, id: string): IMoveItem => {
   console.log(title, id);
   return {
     type: MOVE_TASK,
     title: title,
     id: id,
+  };
+};
+
+export const editTask = (task: ITask): IEditTask => {
+  return {
+    type: EDIT_TASK,
+    task: task,
   };
 };

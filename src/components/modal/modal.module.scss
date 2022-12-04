@@ -12,7 +12,7 @@
   background: $colors-interface-white;
   border-radius: $common-border-radius;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 5;
   padding: 25px;
 
   &__title {
@@ -30,5 +30,6 @@
   &__content {
     display: flex;
     flex-direction: column;
+    padding: 15px;
   }
 }
