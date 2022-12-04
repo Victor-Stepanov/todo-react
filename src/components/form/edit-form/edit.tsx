@@ -47,11 +47,11 @@ const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
         name='title'
         value={values.name}
         onChange={handleChange}
-        placeholder='Заголовок'
+        placeholder='Task title'
       />
       <Textarea
+        placeholder='Task description'
         name='description'
-        placeholder='Описание задачи...'
         value={values.name}
         onChange={handleChange}
       />
@@ -60,14 +60,12 @@ const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
         name='createdAt'
         value={values.name}
         onChange={handleChange}
-        placeholder='Дата создания'
       />
       <Input
         type={'date'}
         name='finishedAt'
         value={values.name}
         onChange={handleChange}
-        placeholder='Дата окончания'
       />
       <Select
         onChange={handleChange}
@@ -82,7 +80,7 @@ const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
         arrOptions={arrStatus}
       />
       <Button htmlType={'submit'} appearance={'primary'}>
-        Изменить
+        Change task
       </Button>
     </Form>
   );

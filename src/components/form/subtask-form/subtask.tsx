@@ -30,13 +30,13 @@ const SubTaskForm: FC<ISubTaskFormProps> = ({ id, onClose }) => {
         name='title'
         value={values.name}
         onChange={handleChange}
-        placeholder='Название подзадачи'
+        placeholder='Subtask title'
       />
       <Textarea
         name='description'
         value={values.name}
         onChange={handleChange}
-        placeholder='Описание подзадачи...'
+        placeholder='Subtask description...'
       />
       <Input
         type={'date'}
@@ -51,7 +51,7 @@ const SubTaskForm: FC<ISubTaskFormProps> = ({ id, onClose }) => {
         arrOptions={arrPriority}
       />
       <Button htmlType={'submit'} appearance={'primary'}>
-        Добавить
+        Create
       </Button>
     </Form>
   );

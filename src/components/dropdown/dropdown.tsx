@@ -68,19 +68,19 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
       </menu>
       {isOpenDelete && (
         <Modal
-          title='Вы уверены?'
+          title='Are you sure?'
           onClose={() => setIsOpenDelete(!isOpenDelete)}
         >
           <DeleteForm id={id} onClose={() => setIsOpenDelete(!isOpenDelete)} />
         </Modal>
       )}
       {isOpenEdit && (
-        <Modal onClose={() => setIsOpenEdit(!isOpenEdit)}>
+        <Modal title='Edit task' onClose={() => setIsOpenEdit(!isOpenEdit)}>
           <EditForm onClose={() => setIsOpenEdit(!isOpenEdit)} item={item} />
         </Modal>
       )}
       {isOpenAdd && (
-        <Modal onClose={() => setIsOpenAdd(!isOpenAdd)}>
+        <Modal title='Create subtask' onClose={() => setIsOpenAdd(!isOpenAdd)}>
           <SubTaskForm onClose={() => setIsOpenAdd(!isOpenAdd)} id={id} />
         </Modal>
       )}

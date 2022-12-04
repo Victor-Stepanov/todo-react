@@ -48,10 +48,7 @@ const TaskItem: FC<ITaskItemProps> = ({ item }) => {
       <div className={style.date}>
         <p>{item.createdAt}</p>
       </div>
-      <ul>
-        {filteredTask.length > 0 && (
-          <h4 className={style.item__title}>Список подзадач:</h4>
-        )}
+      <ul className={style.subtask}>
         {filteredTask &&
           filteredTask.map(item => <SubTask key={item.id} item={item} />)}
       </ul>

@@ -24,7 +24,7 @@ const Header: FC = () => {
                 active={isBoards}
                 path='boards/'
                 icon={<LogoIcon />}
-                children='Доски'
+                children='Boards'
               />
             </li>
           </menu>

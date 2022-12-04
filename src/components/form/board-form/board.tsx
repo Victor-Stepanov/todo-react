@@ -24,16 +24,16 @@ const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
       <Input
         type={'text'}
         name='name'
-        placeholder='Название доски...'
+        placeholder='Board title'
         value={values.name}
         onChange={handleChange}
       />
       <div className={style.form__button}>
         <Button appearance={'primary'} htmlType={'submit'}>
-          Добавить доску
+          Create board
         </Button>
         <Button onClick={onClose} appearance={'secondary'} htmlType={'button'}>
-          Отменить
+          Cancel
         </Button>
       </div>
     </Form>

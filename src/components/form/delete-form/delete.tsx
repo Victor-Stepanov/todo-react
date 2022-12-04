@@ -18,7 +18,7 @@ const DeleteForm: FC<IDeleteFormProps> = ({ onClose, id }) => {
         htmlType={'button'}
         appearance={'primary'}
       >
-        Удалить
+        Delete
       </Button>
     </Form>
   );

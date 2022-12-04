@@ -13,7 +13,7 @@ const BoardsPage: FC = () => {
 
   return (
     <section className={style.section}>
-      <h2 className={style.title}>Рабочее пространство</h2>
+      <h2 className={style.title}>Workspaces</h2>
       <div className={style.content}>
         <Button
           className={style.content__button}
@@ -21,10 +21,10 @@ const BoardsPage: FC = () => {
           appearance={'secondary'}
           onClick={onToggle}
         >
-          Создать доску
+          Create new board
         </Button>
         {isOpen && (
-          <Modal title='Создать новую доску' onClose={onToggle}>
+          <Modal title='Create new board' onClose={onToggle}>
             <BoardForm onClose={onToggle} />
           </Modal>
         )}

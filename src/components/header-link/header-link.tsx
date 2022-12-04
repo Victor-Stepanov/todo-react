@@ -16,7 +16,7 @@ const HeaderLink = ({
       {...props}
     >
       {icon}
-      <p>{children}</p>
+      {children}
     </NavLink>
   );
 };

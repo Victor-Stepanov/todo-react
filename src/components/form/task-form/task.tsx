@@ -35,9 +35,10 @@ const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
         name='title'
         value={values.name}
         onChange={handleChange}
-        placeholder='Заголовок'
+        placeholder='Task title'
       />
       <Textarea
+        placeholder='Task description'
         name='description'
         value={values.name}
         onChange={handleChange}
@@ -47,21 +48,18 @@ const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
         name='createdAt'
         value={values.name}
         onChange={handleChange}
-        placeholder='Дата создания'
       />
       <Input
         type={'date'}
         name='finishedAt'
         value={values.name}
         onChange={handleChange}
-        placeholder='Дата окончания'
       />
       <Input
         type={'file'}
         name='file'
         value={values.name}
         onChange={handleChange}
-        placeholder='Дата окончания'
       />
       <Select
         onChange={handleChange}
@@ -76,7 +74,7 @@ const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
         arrOptions={arrStatus}
       />
       <Button htmlType={'submit'} appearance={'primary'}>
-        Создать
+        Create task
       </Button>
     </Form>
   );

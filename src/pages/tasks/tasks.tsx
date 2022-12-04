@@ -19,10 +19,10 @@ const TasksPage = () => {
 
   return (
     <section className={style.section}>
-      <h2 className={style.title}>Задачи</h2>
+      <h2 className={style.title}>Tasks</h2>
       <div className={style.control}>
         <Button onClick={onToggle} htmlType={'button'} appearance={'primary'}>
-          Создать задачу
+          Create task
         </Button>
         {isOpen && (
           <Modal onClose={onToggle}>

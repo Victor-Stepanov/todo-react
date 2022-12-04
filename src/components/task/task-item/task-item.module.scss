@@ -4,6 +4,7 @@
   background-color: $colors-interface-white;
   box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.16);
   max-width: 300px;
+  min-width: 200px;
   width: 100%;
   min-height: 150px;
   border-radius: $common-border-radius;
@@ -23,6 +24,7 @@
   &__description {
     @include font-style(14px, 400, 21px);
     color: $text-color-black;
+    text-align: justify;
   }
 
   &__control {
@@ -31,9 +33,6 @@
   }
   &__btn {
     padding: 0;
-    // position: absolute;
-    // top: -9px;
-    // right: -9px;
   }
 }
 
@@ -50,4 +49,18 @@
 .box {
   display: flex;
   justify-content: space-between;
+}
+
+.subtask {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+
+  &__title {
+    @include font-style(14px, 700, 21px);
+    color: $text-color-black;
+  }
 }
