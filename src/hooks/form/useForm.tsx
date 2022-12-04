@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { IUseFormProps } from './useForm.props';
 
 const useForm = (inputValues: any) => {
   const [values, setValues] = useState(inputValues);
