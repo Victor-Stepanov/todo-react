@@ -29,6 +29,6 @@ export const addSubTask = (item: ISubTask): IAddSubTask => {
 export const removeSubTask = (id: string | undefined): IRemoveSubTask => {
   return {
     type: REMOVE_SUBTASK,
-    id: id,
+    id,
   };
 };

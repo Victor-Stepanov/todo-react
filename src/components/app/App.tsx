@@ -5,8 +5,6 @@ import AppRoutes from '../app-routes/app-routes';
 
 const App = () => {
   const isMobile = window.innerWidth < 600;
-  console.log(isMobile);
-
   return (
     <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
       <AppRoutes />

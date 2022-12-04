@@ -42,7 +42,7 @@ export const addTask = (task: ITask): IAddTask => {
 export const removeTask = (id: string | undefined): IRemoveTask => {
   return {
     type: REMOVE_TASK,
-    id: id,
+    id,
   };
 };
 
@@ -50,8 +50,8 @@ export const moveItem = (title: string, id: string): IMoveItem => {
   console.log(title, id);
   return {
     type: MOVE_TASK,
-    title: title,
-    id: id,
+    title,
+    id,
   };
 };
 
@@ -59,6 +59,6 @@ export const editTask = (task: ITask): IEditTask => {
   console.log(task);
   return {
     type: EDIT_TASK,
-    task: task,
+    task,
   };
 };
