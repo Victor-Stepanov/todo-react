@@ -29,7 +29,7 @@ const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
         onChange={handleChange}
       />
       <div className={style.form__button}>
-        <Button appearance={'primary'} htmlType={'button'}>
+        <Button appearance={'primary'} htmlType={'submit'}>
           Добавить доску
         </Button>
         <Button onClick={onClose} appearance={'secondary'} htmlType={'button'}>

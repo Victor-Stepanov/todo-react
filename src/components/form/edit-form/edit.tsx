@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, FormEvent } from 'react';
 import useForm from '../../../hooks/form/useForm';
 import { useAppDispatch } from '../../../hooks/hooks';
 import { editTask } from '../../../services/actions/tasks';
@@ -7,31 +7,41 @@ import Select from '../../../ui/select/select';
 import Form from '../form';
 import { IEditFormProps } from './edit.props';
 
-const EditForm:FC<IEditFormProps> = ({onClose, boardId, id}) => {
-    //TODO:Разобраться, что делать дальше)
+const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
+  //TODO:
+  const {
+    title,
+    id,
+    boardId,
+    description,
+    createdAt,
+    finishedAt,
+    priority,
+    status,
+  } = item;
   const dispatch = useAppDispatch();
   const { values, handleChange } = useForm({
-    title: '',
-    id: '',
-    boardId: '',
-    description: '',
-    createdAt: '',
-    finishedAt: '',
-    priority: 'low',
-    status: 'queue',
-    file: '',
+    title: title,
+    id: id,
+    boardId: boardId,
+    description: description,
+    createdAt: createdAt,
+    finishedAt: finishedAt,
+    priority: priority,
+    status: status,
   });
 
   const arrPriority = ['low', 'medium', 'high'];
   const arrStatus = ['queue', 'development', 'done'];
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(editTask(values));
+    onClose();
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Input
         type={'text'}
         name='title'
@@ -41,6 +51,7 @@ const EditForm:FC<IEditFormProps> = ({onClose, boardId, id}) => {
       />
       <Textarea
         name='description'
+        placeholder='Описание задачи...'
         value={values.name}
         onChange={handleChange}
       />
@@ -70,8 +81,8 @@ const EditForm:FC<IEditFormProps> = ({onClose, boardId, id}) => {
         value={values.name}
         arrOptions={arrStatus}
       />
-      <Button onClick={handleSubmit} htmlType={'button'} appearance={'primary'}>
-        Создать
+      <Button htmlType={'submit'} appearance={'primary'}>
+        Изменить
       </Button>
     </Form>
   );

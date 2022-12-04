@@ -21,11 +21,9 @@ const Task: FC<ITaskProps> = ({ title, task }) => {
       <div className={style.task__box}>
         <h2 className={style.task__title}>{title}</h2>
       </div>
-      {
-        <ul className={style.list}>
-          {task && task.map(item => <TaskItem key={item.id} item={item} />)}
-        </ul>
-      }
+      <ul className={style.list}>
+        {task && task.map(item => <TaskItem key={item.id} item={item} />)}
+      </ul>
     </div>
   );
 };

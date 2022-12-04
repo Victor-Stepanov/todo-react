@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, FormEvent } from 'react';
 import useForm from '../../../hooks/form/useForm';
 import { useAppDispatch } from '../../../hooks/hooks';
 import { addTask } from '../../../services/actions/tasks';
@@ -23,7 +23,7 @@ const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
   const arrPriority = ['low', 'medium', 'high'];
   const arrStatus = ['queue', 'development', 'done'];
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(addTask(values));
     onClose();
@@ -75,7 +75,7 @@ const TaskForm: FC<ITaskFormProps> = ({ id, onClose }) => {
         value={values.name}
         arrOptions={arrStatus}
       />
-      <Button onClick={handleSubmit} htmlType={'button'} appearance={'primary'}>
+      <Button htmlType={'submit'} appearance={'primary'}>
         Создать
       </Button>
     </Form>

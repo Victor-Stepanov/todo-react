@@ -5,14 +5,16 @@ import {
   REMOVE_TASK,
   TTaskActions,
 } from './../actions/tasks';
-import { ITask } from './../types/data';
+import { ISubTask, ITask } from './../types/data';
 
 type TInitialState = {
   tasks: ITask[] | [];
+  subtask: ISubTask[] | [];
 };
 
-export const initialState: TInitialState = {
+const initialState: TInitialState = {
   tasks: [],
+  subtask: [],
 };
 
 export const tasksReducer = (
@@ -33,9 +35,11 @@ export const tasksReducer = (
       };
     }
     case EDIT_TASK: {
-      console.log(action.task);
       return {
         ...state,
+        tasks: state.tasks.map(item =>
+          item.id === action.task.id ? action.task : item
+        ),
       };
     }
     case MOVE_TASK: {

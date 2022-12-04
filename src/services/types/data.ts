@@ -26,10 +26,15 @@ export interface ITask {
   priority: TPriority;
   files?: string[];
   status: string;
-  subTasks?: ITask[];
+  subTasks?: string[];
   comment?: IComment[];
 }
 
-export interface ITasks {
-  tasks: ITask[];
+export interface ISubTask {
+  id: string;
+  taskId: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  priority: TPriority;
 }

@@ -2,6 +2,8 @@ import cn from 'classnames';
 import { FC, useState } from 'react';
 import { AddIcon, Button, DeleteIcon, EditIcon } from '../../ui';
 import DeleteForm from '../form/delete-form/delete';
+import EditForm from '../form/edit-form/edit';
+import SubTaskForm from '../form/subtask-form/subtask';
 import Modal from '../modal/modal';
 import style from './dropdown.module.scss';
 import { IDropDownProps } from './dropdown.props';
@@ -9,18 +11,21 @@ import { IDropDownProps } from './dropdown.props';
 const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
   const { id } = item;
   const [isOpenDelete, setIsOpenDelete] = useState<boolean>(false);
+  const [isOpenEdit, setIsOpenEdit] = useState<boolean>(false);
+  const [isOpenAdd, setIsOpenAdd] = useState<boolean>(false);
 
-  //Костыль
   const openDeleteForm = () => {
     setIsOpenDelete(!isOpenDelete);
     close();
   };
 
   const openEditForm = () => {
+    setIsOpenEdit(!isOpenEdit);
     close();
   };
 
   const openAddForm = () => {
+    setIsOpenAdd(!isOpenAdd);
     close();
   };
   return (
@@ -67,6 +72,16 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
           onClose={() => setIsOpenDelete(!isOpenDelete)}
         >
           <DeleteForm id={id} onClose={() => setIsOpenDelete(!isOpenDelete)} />
+        </Modal>
+      )}
+      {isOpenEdit && (
+        <Modal onClose={() => setIsOpenEdit(!isOpenEdit)}>
+          <EditForm onClose={() => setIsOpenEdit(!isOpenEdit)} item={item} />
+        </Modal>
+      )}
+      {isOpenAdd && (
+        <Modal onClose={() => setIsOpenAdd(!isOpenAdd)}>
+          <SubTaskForm onClose={() => setIsOpenAdd(!isOpenAdd)} id={id} />
         </Modal>
       )}
     </nav>

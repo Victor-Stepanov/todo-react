@@ -1,12 +1,15 @@
 import { FC } from 'react';
 import { useDrag } from 'react-dnd';
+import { useAppSelector } from '../../../hooks/hooks';
 import useToggle from '../../../hooks/toggle/useModalState';
 import { Button, MenuIcon, Tag } from '../../../ui';
 import DropDownMenu from '../../dropdown/dropdown';
+import SubTask from '../subtask-item/subtask';
 import style from './task-item.module.scss';
 import { ITaskItemProps } from './task-item.props';
 
 const TaskItem: FC<ITaskItemProps> = ({ item }) => {
+  const { subtask } = useAppSelector(state => state.subTaskData);
   const [{ isDrag }, dragRef] = useDrag(
     {
       type: 'item',
@@ -19,6 +22,8 @@ const TaskItem: FC<ITaskItemProps> = ({ item }) => {
   );
 
   const { isOpen, onToggle } = useToggle(false);
+  const filteredTask = subtask.filter(task => task.taskId === item.id);
+  console.log(filteredTask);
 
   return (
     <li ref={dragRef} className={style.item} draggable>
@@ -43,6 +48,13 @@ const TaskItem: FC<ITaskItemProps> = ({ item }) => {
       <div className={style.date}>
         <p>{item.createdAt}</p>
       </div>
+      <ul>
+        {filteredTask.length > 0 && (
+          <h4 className={style.item__title}>Список подзадач:</h4>
+        )}
+        {filteredTask &&
+          filteredTask.map(item => <SubTask key={item.id} item={item} />)}
+      </ul>
     </li>
   );
 };
