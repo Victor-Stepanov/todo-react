@@ -1,0 +1,73 @@
+@import '../../styles/main.scss';
+.container {
+  margin: 80px auto 0 auto;
+  width: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__title {
+    @include font-style(38px, 500, 45px);
+    color: $text-color-black;
+  }
+
+  &__description {
+    @include font-style(16px, 400, 24px);
+    color: $text-color-black;
+  }
+  &__quote {
+    @include font-style(16px, 400, 24px);
+    color: $text-color-black;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__title {
+      @include font-style(38px, 500, 45px);
+      color: $text-color-black;
+    }
+
+    &__description {
+      @include font-style(16px, 400, 24px);
+      color: $text-color-black;
+    }
+    &__quote {
+      @include font-style(16px, 400, 24px);
+      color: $text-color-black;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .info {
+    gap: 10px;
+
+    &__title {
+      @include font-style(38px, 500, 45px);
+      color: $text-color-black;
+    }
+
+    &__description {
+      @include font-style(12px, 400, 20px);
+      color: $text-color-black;
+    }
+    &__quote {
+      @include font-style(12px, 400, 20px);
+      color: $text-color-black;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .info {
+    gap: 0;
+  }
+}

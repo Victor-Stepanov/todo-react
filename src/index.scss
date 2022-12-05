@@ -1,10 +1,10 @@
-@import './styles/index.scss';
+@import './styles/main.scss';
+@import './styles/reset.scss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 body {
-  background-color: $colors-interface-blue;
+  font-family: 'Roboto', sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
 }

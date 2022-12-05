@@ -5,7 +5,15 @@ import { IInputProps } from './input.props';
 
 const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({ className, ...props }, ref) => {
-    return <input className={cn(className, style.input)} ref={ref} type='text' {...props} />;
+    return (
+      <input
+        className={cn(className, style.input)}
+        ref={ref}
+        autoComplete='off'
+        type='text'
+        {...props}
+      />
+    );
   }
 );
 

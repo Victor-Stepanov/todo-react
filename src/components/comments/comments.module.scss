@@ -1,0 +1,27 @@
+@import '../../styles/main.scss';
+.container {
+  max-width: 150px;
+  min-width: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: $color-medium-priority;
+  padding: 5px;
+  border-radius: $common-border-radius;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  &__name {
+    @include font-style(10px, 400, 15px);
+  }
+  &__description {
+    @include font-style(10px, 400, 15px);
+  }
+}

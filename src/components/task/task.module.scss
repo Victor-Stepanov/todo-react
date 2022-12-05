@@ -1,0 +1,28 @@
+@import '../../styles/main.scss';
+
+.task {
+  background-color: $colors-interface-dark-blue;
+  border-radius: $common-border-radius;
+  max-width: 350px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  &__box {
+    background-color: rgba(8, 51, 70, 1);
+    border-radius: $common-border-radius;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  &__title {
+    @include font-style(18px, 700, 45px);
+    color: $text-color-white;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}

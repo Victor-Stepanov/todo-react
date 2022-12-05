@@ -1,18 +1,15 @@
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
-import './app.scss';
+import AppRoutes from '../app-routes/app-routes';
 
 const App = () => {
-  //TODO:Добавить компоненты
   const isMobile = window.innerWidth < 600;
-
+  console.log(isMobile)
   return (
-    <div className='container'>
-      <DndProvider
-        backend={isMobile ? TouchBackend : HTML5Backend}
-      ></DndProvider>
-    </div>
+    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend}>
+      <AppRoutes />
+    </DndProvider>
   );
 };
 

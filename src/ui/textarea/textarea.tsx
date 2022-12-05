@@ -6,7 +6,12 @@ import { ITextareaProps } from './textarea.props';
 const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ({ className, ...props }, ref) => {
     return (
-      <textarea className={cn(className, style.textarea)} ref={ref} {...props} />
+      <textarea
+        maxLength={195}
+        className={cn(className, style.textarea)}
+        ref={ref}
+        {...props}
+      />
     );
   }
 );

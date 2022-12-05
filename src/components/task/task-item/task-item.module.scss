@@ -1,0 +1,86 @@
+@import '../../../styles/main.scss';
+
+.item {
+  background-color: $colors-interface-white;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.16);
+  max-width: 300px;
+  min-width: 200px;
+  width: 100%;
+  min-height: 150px;
+  border-radius: $common-border-radius;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__title {
+    @include font-style(14px, 700, 21px);
+    color: $text-color-black;
+  }
+
+  &__description {
+    @include font-style(14px, 400, 21px);
+    color: $text-color-black;
+    text-align: justify;
+  }
+
+  &__control {
+    max-width: 5px;
+    max-height: 0;
+    z-index: 6;
+  }
+  &__btn {
+    padding: 0;
+  }
+}
+
+.date {
+  border-radius: $common-border-radius;
+  background-color: $colors-interface-gray-light;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 8px;
+  max-width: 100px;
+  width: 100%;
+
+  &__create {
+    span {
+      @include font-style(10px, 500, 15px);
+    }
+    @include font-style(10px, 400, 15px);
+  }
+  &__finish {
+    span {
+      @include font-style(10px, 500, 15px);
+    }
+    @include font-style(10px, 400, 15px);
+  }
+}
+
+.comments {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(50px, 150px));
+  gap: 10px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtask {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+
+  &__title {
+    @include font-style(14px, 700, 21px);
+    color: $text-color-black;
+  }
+}
