@@ -47,7 +47,6 @@ export const removeTask = (id: string | undefined): IRemoveTask => {
 };
 
 export const moveItem = (title: string, id: string): IMoveItem => {
-  console.log(title, id);
   return {
     type: MOVE_TASK,
     title,
@@ -56,7 +55,6 @@ export const moveItem = (title: string, id: string): IMoveItem => {
 };
 
 export const editTask = (task: ITask): IEditTask => {
-  console.log(task);
   return {
     type: EDIT_TASK,
     task,

@@ -1,0 +1,14 @@
+@import '../../styles/main.scss';
+
+.footer {
+  background-color: $colors-interface-blue;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1440px;
+}

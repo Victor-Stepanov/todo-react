@@ -10,20 +10,16 @@ import { ITaskItemProps } from './task-item.props';
 
 const TaskItem: FC<ITaskItemProps> = ({ item }) => {
   const { subtask } = useAppSelector(state => state.subTaskData);
-  const [{ isDrag }, dragRef] = useDrag(
+  const [, dragRef] = useDrag(
     {
       type: 'item',
       item: item,
-      collect: monitor => ({
-        isDrag: monitor.isDragging(),
-      }),
     },
     [item]
   );
 
   const { isOpen, onToggle } = useToggle(false);
   const filteredTask = subtask.filter(task => task.taskId === item.id);
-  console.log(filteredTask);
 
   return (
     <li ref={dragRef} className={style.item} draggable>
