@@ -1,0 +1,23 @@
+@import '../../styles/main.scss';
+
+.tag {
+  @include font-style(12px, 500, 15px);
+  width: 71px;
+  height: 20px;
+  padding: 2px 8px;
+  display: inline-block;
+  box-sizing: border-box;
+  color: $text-color-black;
+  text-align: center;
+  border-radius: $common-border-radius;
+
+  &__low {
+    background-color: $color-low-priority;
+  }
+  &__medium {
+    background-color: $color-medium-priority;
+  }
+  &__high {
+    background-color: $color-high-priority;
+  }
+}

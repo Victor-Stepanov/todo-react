@@ -1,0 +1,15 @@
+@import '../../styles/main.scss';
+
+.nav__link {
+  @include font-style(20px, 500, 23px);
+  color: $text-color-white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  &_active {
+    padding: 10px;
+    border-radius: $common-border-radius;
+    background-color: #4e97c2;
+  }
+}

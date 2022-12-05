@@ -1,0 +1,35 @@
+@import '../../../../styles/main.scss';
+
+.item {
+  margin-top: 10px;
+  background-color: $colors-interface-white;
+  max-width: 300px;
+  width: 100%;
+  min-height: 150px;
+  border-radius: $common-border-radius;
+  box-sizing: border-box;
+  border: 1px solid $colors-interface-blue;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  &__title {
+    @include font-style(14px, 700, 21px);
+    color: $text-color-black;
+  }
+
+  &__description {
+    @include font-style(14px, 400, 21px);
+    color: $text-color-black;
+    text-align: justify;
+  }
+}
+
+.date {
+  border-radius: $common-border-radius;
+  background-color: $colors-interface-gray-light;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100px;
+  width: 100%;
+}
