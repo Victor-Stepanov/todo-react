@@ -32,7 +32,12 @@ const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
         <Button appearance={'primary'} htmlType={'submit'}>
           Create board
         </Button>
-        <Button onClick={onClose} appearance={'secondary'} htmlType={'button'}>
+        <Button
+          disabled={!values.name}
+          onClick={onClose}
+          appearance={'secondary'}
+          htmlType={'button'}
+        >
           Cancel
         </Button>
       </div>

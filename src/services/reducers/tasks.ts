@@ -5,16 +5,14 @@ import {
   REMOVE_TASK,
   TTaskActions,
 } from './../actions/tasks';
-import { ISubTask, ITask } from './../types/data';
+import { ITask } from './../types/data';
 
 type TInitialState = {
   tasks: ITask[] | [];
-  subtask: ISubTask[] | [];
 };
 
 const initialState: TInitialState = {
   tasks: [],
-  subtask: [],
 };
 
 export const tasksReducer = (

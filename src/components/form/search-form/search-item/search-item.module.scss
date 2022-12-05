@@ -1,17 +1,18 @@
-@import '../../../styles/main.scss';
+@import '../../../../styles/main.scss';
 
 .item {
+  margin-top: 10px;
   background-color: $colors-interface-white;
+  max-width: 300px;
   width: 100%;
-  min-height: 100px;
+  min-height: 150px;
   border-radius: $common-border-radius;
-  border: 1px solid $colors-interface-blue;
   box-sizing: border-box;
-  padding: 7px;
-  gap: 7px;
+  border: 1px solid $colors-interface-blue;
+  padding: 5px;
+
   display: flex;
   flex-direction: column;
-
   &__title {
     @include font-style(14px, 700, 21px);
     color: $text-color-black;
@@ -22,27 +23,13 @@
     color: $text-color-black;
     text-align: justify;
   }
-
-  &__control {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
 
 .date {
   border-radius: $common-border-radius;
   background-color: $colors-interface-gray-light;
   display: flex;
-  flex-direction: column;
-  padding: 6px 8px;
+  justify-content: space-between;
   max-width: 100px;
   width: 100%;
-
-  &__create {
-    span {
-      @include font-style(10px, 500, 15px);
-    }
-    @include font-style(10px, 400, 15px);
-  }
 }

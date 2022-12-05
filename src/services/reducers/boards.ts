@@ -1,11 +1,18 @@
 import { ADD_BOARD, REMOVE_BOARD, TBoardsActions } from './../actions/boards';
-import { IBoards } from './../types/data';
+import { IBoard } from './../types/data';
 
-const initialState: IBoards = {
+type TInitialState = {
+  boards: IBoard[] | [];
+};
+
+const initialState: TInitialState = {
   boards: [],
 };
 
-export const boardsReducer = (state = initialState, action: TBoardsActions) => {
+export const boardsReducer = (
+  state = initialState,
+  action: TBoardsActions
+): TInitialState => {
   switch (action.type) {
     case ADD_BOARD:
       return {

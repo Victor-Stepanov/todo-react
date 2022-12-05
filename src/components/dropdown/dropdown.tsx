@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { FC, useState } from 'react';
-import { AddIcon, Button, DeleteIcon, EditIcon } from '../../ui';
+import { AddIcon, Button, CommentIcon, DeleteIcon, EditIcon } from '../../ui';
+import CommentForm from '../form/comment-form/comment';
 import DeleteForm from '../form/delete-form/delete';
 import EditForm from '../form/edit-form/edit';
 import SubTaskForm from '../form/subtask-form/subtask';
@@ -13,6 +14,7 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
   const [isOpenDelete, setIsOpenDelete] = useState<boolean>(false);
   const [isOpenEdit, setIsOpenEdit] = useState<boolean>(false);
   const [isOpenAdd, setIsOpenAdd] = useState<boolean>(false);
+  const [isOpenComment, setIsOpenComment] = useState<boolean>(false);
 
   const openDeleteForm = () => {
     setIsOpenDelete(!isOpenDelete);
@@ -26,6 +28,11 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
 
   const openAddForm = () => {
     setIsOpenAdd(!isOpenAdd);
+    close();
+  };
+
+  const openCommentForm = () => {
+    setIsOpenComment(!isOpenComment);
     close();
   };
   return (
@@ -65,6 +72,16 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
           </Button>
           <p className={style.item__text}>Add</p>
         </li>
+        <li className={style.item} onClick={openCommentForm}>
+          <Button
+            className={style.item__btn}
+            htmlType={'button'}
+            appearance={'ghost'}
+          >
+            <CommentIcon />
+          </Button>
+          <p className={style.item__text}>Com</p>
+        </li>
       </menu>
       {isOpenDelete && (
         <Modal
@@ -82,6 +99,17 @@ const DropDownMenu: FC<IDropDownProps> = ({ close, active, item }) => {
       {isOpenAdd && (
         <Modal title='Create subtask' onClose={() => setIsOpenAdd(!isOpenAdd)}>
           <SubTaskForm onClose={() => setIsOpenAdd(!isOpenAdd)} id={id} />
+        </Modal>
+      )}
+      {isOpenComment && (
+        <Modal
+          title='Add comment'
+          onClose={() => setIsOpenComment(!isOpenComment)}
+        >
+          <CommentForm
+            id={id}
+            onClose={() => setIsOpenComment(!isOpenComment)}
+          />
         </Modal>
       )}
     </nav>

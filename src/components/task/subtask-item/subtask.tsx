@@ -23,7 +23,10 @@ const SubTask: FC<ISubTaskProps> = ({ item }) => {
       <h3 className={style.item__title}>{item.title}</h3>
       <p className={style.item__description}>{item.description}</p>
       <div className={style.date}>
-        <p>{item.createdAt}</p>
+        <p className={style.date__create}>
+          <span>Create: </span>
+          {item.createdAt}
+        </p>
       </div>
     </li>
   );

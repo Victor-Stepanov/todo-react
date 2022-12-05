@@ -3,14 +3,11 @@ export interface IBoard {
   name: string;
 }
 
-export interface IBoards {
-  boards: IBoard[];
-}
-
 export type TPriority = 'low' | 'medium' | 'high';
 
 export interface IComment {
   id: string;
+  taskId: string;
   name: string;
   description: string;
 }
@@ -26,8 +23,6 @@ export interface ITask {
   priority: TPriority;
   files?: string[];
   status: string;
-  subTasks?: string[];
-  comment?: IComment[];
 }
 
 export interface ISubTask {

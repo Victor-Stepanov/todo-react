@@ -8,17 +8,7 @@ import Form from '../form';
 import { IEditFormProps } from './edit.props';
 
 const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
-  //TODO:
-  const {
-    title,
-    id,
-    boardId,
-    description,
-    createdAt,
-    finishedAt,
-    priority,
-    status,
-  } = item;
+  const { title, id, boardId, description, createdAt, finishedAt } = item;
   const dispatch = useAppDispatch();
   const { values, handleChange } = useForm({
     title: title,
@@ -27,8 +17,8 @@ const EditForm: FC<IEditFormProps> = ({ onClose, item }) => {
     description: description,
     createdAt: createdAt,
     finishedAt: finishedAt,
-    priority: priority,
-    status: status,
+    priority: 'low',
+    status: 'queue',
   });
 
   const arrPriority = ['low', 'medium', 'high'];

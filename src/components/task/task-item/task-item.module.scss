@@ -30,6 +30,7 @@
   &__control {
     max-width: 5px;
     max-height: 0;
+    z-index: 6;
   }
   &__btn {
     padding: 0;
@@ -40,10 +41,29 @@
   border-radius: $common-border-radius;
   background-color: $colors-interface-gray-light;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 6px 8px;
-  max-width: 200px;
+  max-width: 100px;
   width: 100%;
+
+  &__create {
+    span {
+      @include font-style(10px, 500, 15px);
+    }
+    @include font-style(10px, 400, 15px);
+  }
+  &__finish {
+    span {
+      @include font-style(10px, 500, 15px);
+    }
+    @include font-style(10px, 400, 15px);
+  }
+}
+
+.comments {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(50px, 150px));
+  gap: 10px;
 }
 
 .box {
