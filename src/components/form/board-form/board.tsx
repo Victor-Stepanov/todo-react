@@ -25,11 +25,14 @@ const BoardForm: FC<IBoardFormProps> = ({ onClose }) => {
         type={'text'}
         name='name'
         placeholder='Board title'
-        disabled={!values.name}
         onChange={handleChange}
       />
       <div className={style.form__button}>
-        <Button appearance={'primary'} htmlType={'submit'}>
+        <Button
+          disabled={!values.name}
+          appearance={'primary'}
+          htmlType={'submit'}
+        >
           Create board
         </Button>
         <Button onClick={onClose} appearance={'secondary'} htmlType={'button'}>
